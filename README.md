@@ -9,6 +9,6 @@ yarn add axios vue-router vuex echarts vue-echarts element-plus nprogress
 ```
 
 ```sh
-yarn add -D postcss-pxtorem sass sass-loader unplugin-vue-components
+yarn add -D postcss-pxtorem sass sass-loader unplugin-vue-components unplugin-icons unplugin-vue-components
 ```
 

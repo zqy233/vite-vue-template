@@ -1,8 +1,17 @@
 <template>
+  <!-- <p>
+    <home-header>111</home-header>
+    <el-button type="primary">点击</el-button>
+
+    <el-card> 111111111111 </el-card>
+    <i-ep-loading color="#409EFC" class="is-loading" />
+  </p> -->
+  <!-- <template> -->
+  <!-- <div class="common-layout"> -->
   <el-container class="home" style="height: 100vh">
-    <el-header class="home-header">Header</el-header>
+    <el-header height="100px" class="home-header">Header</el-header>
     <el-container class="home-container">
-      <el-aside class="home-side">
+      <el-aside width="200px" class="home-side">
         <!-- :collapse="isCollapse" @open="handleOpen" @close="handleClose" -->
         <el-menu default-active="2" class="el-menu-vertical-demo">
           <el-sub-menu index="1">
@@ -35,32 +44,36 @@
       </el-aside>
       <el-main class="home-main">
         <el-scrollbar>
-          <div class="text">111</div>
+          <div class="ssssss">111</div>
         </el-scrollbar>
       </el-main>
     </el-container>
   </el-container>
+  <!-- </div> -->
+  <!-- </template> -->
 </template>
 <style lang="scss" scoped>
 .home {
   height: 100vh;
   .home-header {
-    height: 100px;
+    /* background-color: skyblue; */
   }
   .home-container {
-    /* prettier-ignore */
-    height: calc(100vh - 100PX);
+    /* height: calc(100vh - 100px); */
     .home-side {
-      /* prettier-ignore */
-      width: 200PX;
+      /* background-color: pink; */
     }
     .home-main {
+      /* padding: 0; */
+      /* height: 100%; */
       background-color: rgba(255, 255, 255, 0.297);
-
-      .text {
-        height: 5000px;
-      }
+      /* overflow: auto; */
+      /* padding-bottom: 500px; */
+      /* overflow: auto; */
     }
   }
+}
+.ssssss {
+  height: 5000px;
 }
 </style>

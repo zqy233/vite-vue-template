@@ -68,8 +68,8 @@
   function refreshRem() {
     var width = docEl.getBoundingClientRect().width
     // 设置最小宽度
-    if (width / dpr < 720) {
-      width = 720 * dpr
+    if (width / dpr < 1420) {
+      width = 1420 * dpr
     }
     var rem = width / 10
     docEl.style.fontSize = rem + "px"
