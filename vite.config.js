@@ -23,7 +23,7 @@ export default defineConfig({
     // 自动导入vue3中composition api函数
     AutoImport({
       include: [/\.vue$/, /\.vue\?vue/], // 作用于所有vue文件
-      dts: "src/auto-import.d.ts", // 生成全局的vue函数的typescript定义
+      dts: false, // 生成全局的vue函数的typescript定义
       imports: ["vue", "vue-router", "vuex"], // vue和vue-router都自动导入
       resolvers: [
         // 自动导入element-plus函数，如message

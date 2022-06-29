@@ -1,6 +1,9 @@
 <template>
   <el-container class="home" style="height: 100vh">
-    <el-header class="home-header">Header</el-header>
+    <el-header class="home-header">
+      <p></p>
+      <div><el-input v-model="a" maxlength="11200" resize="none" :clearable="true" :show-word-limit="true" autosize /></div>
+    </el-header>
     <el-container class="home-container">
       <el-aside class="home-side">
         <!-- :collapse="isCollapse" @open="handleOpen" @close="handleClose" -->
@@ -41,15 +44,18 @@
     </el-container>
   </el-container>
 </template>
+<script setup>
+const a = ref("")
+</script>
 <style lang="scss" scoped>
 .home {
   height: 100vh;
   .home-header {
-    height: 100px;
+    height: 200px;
   }
   .home-container {
     /* prettier-ignore */
-    height: calc(100vh - 100PX);
+    height: calc(100vh - 200PX);
     .home-side {
       /* prettier-ignore */
       width: 200PX;
