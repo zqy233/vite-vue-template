@@ -6,6 +6,8 @@ import IconsResolver from "unplugin-icons/resolver"
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
+import Pages from "vite-plugin-pages"
+
 export default defineConfig({
   base: "./", // 根路径
   // 全局加载scss文件
@@ -24,7 +26,7 @@ export default defineConfig({
     AutoImport({
       include: [/\.vue$/, /\.vue\?vue/], // 作用于所有vue文件
       dts: false, // 生成全局的vue函数的typescript定义
-      imports: ["vue", "vue-router", "vuex"], // vue和vue-router都自动导入
+      imports: ["vue", "vue-router", "vuex", "@vueuse/core"], // vue和vue-router都自动导入
       resolvers: [
         // 自动导入element-plus函数，如message
         ElementPlusResolver(),
@@ -47,8 +49,23 @@ export default defineConfig({
         }),
         ElementPlusResolver({
           importStyle: "sass"
-        })
+        }),
+        componentName => {
+          // where `componentName` is always CapitalCase
+          console.log("未明确导入的组件", componentName)
+          if (componentName !== "RouterView") return { name: componentName, from: "@element-plus/icons-vue" }
+        }
       ]
+    }),
+    Pages({
+      // 自动读取src/views下的vue文件，生成路由信息，默认路由路径'/‘
+      dirs: [{ dir: "src/views", baseRoute: "/" }],
+      // 异步方式加载路由组件
+      importMode: "async"
+      // 遍历路由信息，给默认路由加一个redirect
+      // extendRoute(route) {
+      // if (route.path === "/") return { ...route, redirect: "login" }
+      // }
     }),
     // 自动下载
     Icons({
@@ -68,7 +85,7 @@ export default defineConfig({
     // proxy: {
     //   "/test": "http://192.168.1.236:10007"
     // },
-    port: 9005, // 端口号
+    port: 9006, // 端口号
     open: true // 是否自动打开浏览器
   }
 })

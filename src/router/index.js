@@ -1,25 +1,27 @@
-import { createRouter, createWebHashHistory } from "vue-router"
 import NProgress from "nprogress"
 import store from "../store"
+import { createRouter, createWebHashHistory } from "vue-router"
+// const routes = [
+//   {
+//     path: "/",
+//     name: "index",
+//     component: () => import("../views/index.vue")
+//     //   redirect: "homePage",
+//     //   children: [
+//     //     {
+//     //       path: "/homePage",
+//     //       name: "homePage",
+//     //       component: () => import("../views/homePage/index.vue")
+//     //     },
+//     // {
+//     //   path: "/",
+//     //   name: "login",
+//     //   component: () => import("../views/login.vue")
+//   }
+// ]
+import routes from "virtual:generated-pages"
+console.log("路由信息", routes)
 
-const routes = [
-  {
-    path: "/",
-    name: "index",
-    component: () => import("../views/index.vue")
-    //   redirect: "homePage",
-    //   children: [
-    //     {
-    //       path: "/homePage",
-    //       name: "homePage",
-    //       component: () => import("../views/homePage/index.vue")
-    //     },
-    // {
-    //   path: "/",
-    //   name: "login",
-    //   component: () => import("../views/login.vue")
-  }
-]
 const router = createRouter({
   history: createWebHashHistory(),
   routes

@@ -9,6 +9,4 @@ import "echarts"
 import Echarts from "vue-echarts"
 const app = createApp(App)
 app.component("Echarts", Echarts)
-// import { ElMessage } from "element-plus"
-// app.config.globalProperties.$message = ElMessage
 app.use(store).use(router).mount("#app")
